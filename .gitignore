@@ -1,0 +1,16 @@
+# Local database and data stores
+chroma_store/
+*.db
+*.sqlite
+
+# Authentication and config overrides
+config.yaml
+
+# Python cache and virtual environments
+__pycache__/
+.venv/
+env/
+*.pyc
+
+# Streamlit config
+.streamlit/
