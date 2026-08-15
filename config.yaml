@@ -1,0 +1,28 @@
+cookie:
+  expiry_days: 1
+  key: super_secret_signature_key
+  name: enterprise_ai_cookie
+credentials:
+  usernames:
+    admin:
+      email: admin@enterprise.com
+      failed_login_attempts: 0
+      first_name: System
+      last_name: Admin
+      logged_in: false
+      password: $2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW
+    olaileo:
+      email: oleo@gmail.com
+      first_name: Oleo
+      last_name: Khundrakpam
+      logged_in: false
+      password: $2b$12$10pk9hewt.lyIQNOFkzgk.zynnDe8FBvjGt7QbyMcnMmTXOkd/J9i
+      password_hint: name
+      roles: null
+    user:
+      email: user@enterprise.com
+      failed_login_attempts: 0
+      first_name: Enterprise
+      last_name: User
+      logged_in: false
+      password: $2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4hJv6s826K
