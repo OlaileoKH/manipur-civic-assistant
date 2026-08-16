@@ -29,22 +29,22 @@ def query_local_rag_vault(query: str) -> str:
     except Exception as e:
         return f"Database error: {e}"
 
-def ingest_uploaded_document(file_content: str, filename: str) -> str:
-    """Chunks text from an uploaded file and writes it straight to ChromaDB."""
+def ingest_uploaded_document(file_content: str, filename: str, district: str = "General") -> str:
+    """Chunks text from an uploaded file and writes it to ChromaDB with district metadata."""
     try:
         chunks = [c.strip() for c in file_content.split("\n") if c.strip()]
         if not chunks:
             chunks = [file_content.strip()]
             
         base_id = filename.replace(".", "_")
-        ids = [f"{base_id}_chunk_{i}" for i in range(len(chunks))]
+        ids = [f"{base_id}_{district}_{i}" for i in range(len(chunks))]
         
         rag_collection.upsert(
             documents=chunks,
             ids=ids,
-            metadatas=[{"source": filename} for _ in chunks]
+            metadatas=[{"source": filename, "district": district} for _ in chunks]
         )
-        return f"Successfully ingested {len(chunks)} block(s) from '{filename}' into [ChromaDB](https://pypi.org)!"
+        return f"Successfully ingested {len(chunks)} block(s) for **{district}** from '{filename}'!"
     except Exception as e:
         return f"Ingestion error: {e}"
 
